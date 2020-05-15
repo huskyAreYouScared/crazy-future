@@ -1,0 +1,86 @@
+{
+  "id": "1822435",
+  "name": "crazy-future",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "323416",
+      "name": "dog",
+      "font_class": "dog",
+      "unicode": "e976",
+      "unicode_decimal": 59766
+    },
+    {
+      "icon_id": "1075338",
+      "name": "dog",
+      "font_class": "dog1",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "1895505",
+      "name": "dog",
+      "font_class": "dog2",
+      "unicode": "e72c",
+      "unicode_decimal": 59180
+    },
+    {
+      "icon_id": "2665163",
+      "name": "哈士奇",
+      "font_class": "hashiqi",
+      "unicode": "e77a",
+      "unicode_decimal": 59258
+    },
+    {
+      "icon_id": "3890639",
+      "name": "狗狗",
+      "font_class": "gougou",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "5169797",
+      "name": "哈士奇",
+      "font_class": "hashiqi1",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "8743928",
+      "name": "Dog",
+      "font_class": "Dog",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "11220474",
+      "name": "dog_bone",
+      "font_class": "dog_bone",
+      "unicode": "e737",
+      "unicode_decimal": 59191
+    },
+    {
+      "icon_id": "11220478",
+      "name": "dog_help",
+      "font_class": "dog_help",
+      "unicode": "e739",
+      "unicode_decimal": 59193
+    },
+    {
+      "icon_id": "13303554",
+      "name": "husky",
+      "font_class": "husky",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "14679057",
+      "name": "dog",
+      "font_class": "dog3",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    }
+  ]
+}
