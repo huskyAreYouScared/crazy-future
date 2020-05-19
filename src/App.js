@@ -42,10 +42,10 @@ function App() {
     proton.addEmitter(emitter)
     // add canvas renderer
     const renderer = new Proton.CanvasRenderer(canvasEL.current)
-    // renderer.onProtonUpdate = () => {
-    //   context.fillStyle = "rgba(0, 0, 0, 0.1)";
-    //   context.fillRect(0, 0, canvasEL.current.width, canvasEL.current.height);  
-    // }
+    renderer.onProtonUpdate = () => {
+      context.fillStyle = "rgba(0, 0, 0, 0.1)";
+      context.fillRect(0, 0, canvasEL.current.width, canvasEL.current.height);  
+    }
    
     proton.addRenderer(renderer)
     RAF.add(() => {

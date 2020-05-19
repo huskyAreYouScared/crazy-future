@@ -1,9 +1,45 @@
+@keyframes hiddenMenu{
+  0%{
+    transform: scaleX(1);
+  }
+  100%{
+    transform: scaleX(0) scaleY(0);
+    display: none;
+  }
+}
+@keyframes showMenu{
+  0%{
+    transform: scaleX(0) scaleY(0);
+  }
+  100%{
+    transform: scale(1);
+    display: none;
+  }
+}
+
+.menu-block-hidden{
+  animation: hiddenMenu 1s 1 ease-in;
+  transform-origin: 0 0;
+  animation-fill-mode:forwards;
+}
+.menu-block-show{
+  animation: showMenu 1s 1 ease-in;
+  transform-origin: 0 0;
+  animation-fill-mode:forwards;
+  margin: 0;
+  padding: 0;
+}
+.menu-ctrl-show{
+  color: var(--primary);
+}
 .menu-block-box{
+  position: absolute;
+  transform: scaleX(1) scaleY(1);
+  animation: ss 1.5s 0 0 infinite ease-in;
   // pointer-events:none ;
   box-sizing: border-box;
   padding:20px;
   width: 100%;
-  position: absolute;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-template-rows: repeat(3,1fr);
@@ -12,6 +48,7 @@
     height: 30vh;
     background: rgba(204, 204, 204, 0.473);
     transition: all 1s;
+    animation: hiddenAnimate 1.5s 0 0 infinite ease-in;
   }
   .menu-item-active{
     transform: scale(1.05);
