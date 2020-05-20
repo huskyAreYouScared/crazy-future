@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import Proton from 'proton-engine'
 import RAF from 'raf-manager'
 import MenuBlock from '@/views/MenuBlock.jsx'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Rasingen from './views/rasingen/rasingen'
 function App() {
   const proton = new Proton()
   const emitter = new Proton.Emitter()
@@ -60,10 +62,16 @@ function App() {
     event.persist()
   }
   return (
-    <div className="container">
-      <MenuBlock></MenuBlock>
-      <canvas ref={canvasEL} onClick={particle} className="main-bg"></canvas>
-    </div>
+    <Router>
+      <div className="container">
+        <MenuBlock></MenuBlock>
+        <canvas ref={canvasEL} onClick={particle} className="main-bg"></canvas>
+        <ul className="menu-bar-box">
+          <li><Link to="/rasingen"><i className="menu-bar-item iconfont icon-husky"></i></Link></li>
+        </ul>
+      </div>
+      <Route path="/rasingen" component={Rasingen}/>
+    </Router>
   );
 }
 

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 function Main() {
-  let [isShow,setShow] = useState(true)
+  let [isShow,setShow] = useState(false)
   function MouseEnter () {
     // alert(1)
   }
@@ -22,8 +22,8 @@ function Main() {
   return (
     <>
       <span 
-        style={{display:!isShow?'inline-block':'none'}}
-        className="iconfont icon-gougou menu-ctrl-show"
+        className={isShow ? 'menu-ctrl-basic menu-ctrl-hidden iconfont icon-gougou':
+                             'menu-ctrl-basic menu-ctrl-show iconfont icon-gougou'}
         onClick={ctrlShow}
         ></span>
       <div 
@@ -31,16 +31,36 @@ function Main() {
         onMouseDown={boxDownEvent}
         onMouseUp={boxUpEvent}>
         <div className='menu-block-box' >   
-          <div className="menu-item bg1" onMouseEnter={MouseEnter.bind(this)}></div>
-          <div className="menu-item bg2"></div>
-          <div className="menu-item bg1"></div>
-          <div className="menu-item bg1"></div>
-          <div className="menu-item bg2"></div>
-          <div className="menu-item bg2"></div>
-          <div className="menu-item bg2"></div>
-          <div className="menu-item bg1"></div>
-          <div className="menu-item bg1"></div>
-          <div className="menu-item bg2"></div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg1"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg2"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg2"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg1"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg2"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg2"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg2"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg1"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg1"> </div>
+          </div>
+          <div className="menu-item-box" onMouseEnter={MouseEnter.bind(this)}>
+            <div className="menu-item bg2"> </div>
+          </div>
         </div>
       </div>
     </>
