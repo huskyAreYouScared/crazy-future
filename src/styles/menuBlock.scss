@@ -21,17 +21,28 @@
   animation: hiddenMenu 1s 1 ease-in;
   transform-origin: 0 0;
   animation-fill-mode:forwards;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 99;
 }
 .menu-block-show{
   animation: showMenu 1s 1 ease-in;
   transform-origin: 0 0;
   animation-fill-mode:forwards;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 99;
   margin: 0;
   padding: 0;
 }
 .menu-ctrl-basic{
   color: var(--primary);
   position: absolute;
+  z-index: 100;
   display: block;
   font-size: 35px;
   font-weight: 500;
@@ -46,35 +57,7 @@
   margin: 20px 0 0 20px;
   transition: all 1s;
 }
-.menu-ctrl-hidden{
-  animation: ctrlHidden 1.5s 1 ease-in;
-  transform-origin: 0 0;
-  animation-fill-mode:forwards;
-}
-
-.menu-ctrl-show{
-  animation: ctrlshow 1.5s 1 ease-in;
-  transform-origin: 0 0;
-  animation-fill-mode:forwards;
-}
-@keyframes ctrlHidden {
-  from{
-    transform: scale(1);
-  }
-  to{
-    transform: scale(0);
-  }
-}
-@keyframes ctrlshow {
-  from{
-    transform: scale(0);
-  }
-  to{
-    transform: scale(1);
-  }
-}
-.menu-block-box{
-  position: absolute;
+.menu-block-box{  
   transform: scaleX(1) scaleY(1);
   // pointer-events:none ;
   box-sizing: border-box;

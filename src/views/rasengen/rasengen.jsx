@@ -1,24 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import Proton from 'proton-engine'
 import RAF from 'raf-manager'
-import MenuBlock from '@/views/MenuBlock.jsx'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import rasengen from './views/rasengen/rasengen'
-function App() {
+function Rasingen() {
   const proton = new Proton()
   const emitter = new Proton.Emitter()
-  let canvasEL = useRef(null)
+  let rasengenEl = useRef(null)
   let context = null
   useEffect(() => {
-    canvasEL.current.width = window.innerWidth
-    canvasEL.current.height = window.innerHeight
-    canvasEL.current.color = 'rgba(0, 0, 0, 0.075)'
-    context = canvasEL.current.getContext('2d')
+    rasengenEl.current.width = window.innerWidth
+    rasengenEl.current.height = window.innerHeight
+    rasengenEl.current.color = 'rgba(0, 0, 0, 0.075)'
+    context = rasengenEl.current.getContext('2d')
     window.onresize = function (e) {
-      canvasEL.current.width = window.innerWidth;
-      canvasEL.current.height = window.innerHeight;
-      emitter.p.x = canvasEL.current.width / 2;
-      emitter.p.y = canvasEL.current.height / 2;
+      rasengenEl.current.width = window.innerWidth;
+      rasengenEl.current.height = window.innerHeight;
+      emitter.p.x = rasengenEl.current.width / 2;
+      emitter.p.y = rasengenEl.current.height / 2;
     };
     particleAnimation()
   })
@@ -33,20 +30,20 @@ function App() {
       new Proton.Span(0, 360), 'polar'))
     let forceBehaviour = new Proton.Force(0, 0);
     emitter.addBehaviour(forceBehaviour, new Proton.Gravity(.9))
-    emitter.addBehaviour(new Proton.Color('random', 'random', '#cccccc55', Infinity, Proton.easeOutQuart))
+    emitter.addBehaviour(new Proton.Color('#ffffff', '#ffffff', '#cccccc55', Infinity, Proton.easeOutQuart))
     emitter.addBehaviour(new Proton.Alpha(1, 0, Infinity, Proton.easeOutQuart))
     emitter.addBehaviour(new Proton.Scale(5, 0, Infinity, Proton.easeOutQuart))
     //set emitter position
-    emitter.p.x = canvasEL.current.width / 2;
-    emitter.p.y = canvasEL.current.height / 2;
+    emitter.p.x = rasengenEl.current.width / 2;
+    emitter.p.y = rasengenEl.current.height / 2;
     emitter.emit('once')
     //add emitter to the proton
     proton.addEmitter(emitter)
     // add canvas renderer
-    const renderer = new Proton.CanvasRenderer(canvasEL.current)
+    const renderer = new Proton.CanvasRenderer(rasengenEl.current)
     renderer.onProtonUpdate = () => {
       context.fillStyle = "rgba(0, 0, 0, 0.1)";
-      context.fillRect(0, 0, canvasEL.current.width, canvasEL.current.height);  
+      context.fillRect(0, 0, rasengenEl.current.width, rasengenEl.current.height);  
     }
    
     proton.addRenderer(renderer)
@@ -56,23 +53,20 @@ function App() {
   }
 
   const particle = (event) => {
+    console.log(123);
+    
     emitter.p.x = event.clientX
     emitter.p.y = event.clientY
     emitter.emit('once')
     event.persist()
   }
   return (
-    <Router>
-      <div className="container">
-        <MenuBlock></MenuBlock>
-        <canvas ref={canvasEL} onClick={particle} className="main-bg"></canvas>
-        <ul className="menu-bar-box">
-          <li><Link to="/rasengen"><i className="menu-bar-item iconfont icon-husky"></i></Link></li>
-        </ul>
+    <>
+      <div className="rasengen-box">
+        <canvas onClick={particle} ref={rasengenEl}></canvas>
       </div>
-      <Route path="/rasengen" component={rasengen}/>
-    </Router>
-  );
+    </>
+  )
 }
 
-export default App;
+export default Rasingen

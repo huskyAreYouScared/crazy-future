@@ -17,13 +17,14 @@ function Main() {
     event.persist()
   }
   let ctrlShow = () => {
+    console.log(123)
+    
     setShow(true)
   }
   return (
     <>
       <span 
-        className={isShow ? 'menu-ctrl-basic menu-ctrl-hidden iconfont icon-gougou':
-                             'menu-ctrl-basic menu-ctrl-show iconfont icon-gougou'}
+        className="menu-ctrl-basic iconfont icon-gougou"
         onClick={ctrlShow}
         ></span>
       <div 
