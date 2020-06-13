@@ -1,0 +1,116 @@
+{
+  "title": "crazy-future",
+  "steps": [
+    {
+      "file": "src/App.js",
+      "line": 68,
+      "description": "# canvas标签准备\r\n* 首先需要准备一个canvas标签\r\n``` javascript\r\n<canvas ref={canvasEL} onClick={particle} className=\"main-bg\"></canvas>\r\n```",
+      "selection": {
+        "start": {
+          "line": 68,
+          "character": 9
+        },
+        "end": {
+          "line": 68,
+          "character": 80
+        }
+      }
+    },
+    {
+      "file": "src/App.js",
+      "line": 4,
+      "description": "# 引入核心包proton和raf-manager\r\n* 首先要引入本次案例所需要的核心包\r\n``` JS\r\nimport Proton from 'proton-engine'\r\nimport RAF from 'raf-manager'\r\n```\r\n",
+      "selection": {
+        "start": {
+          "line": 2,
+          "character": 1
+        },
+        "end": {
+          "line": 3,
+          "character": 30
+        }
+      }
+    },
+    {
+      "file": "src/App.js",
+      "line": 10,
+      "description": "# 实例化proton和获取canvas元素\r\n* 在这里实例化`粒子`实例、`发射器`实例、获取canvas元素\r\n```JS\r\nconst proton = new Proton()\r\n  const emitter = new Proton.Emitter()\r\n  let canvasEL = useRef()\r\n```\r\n",
+      "selection": {
+        "start": {
+          "line": 8,
+          "character": 3
+        },
+        "end": {
+          "line": 10,
+          "character": 26
+        }
+      }
+    },
+    {
+      "file": "src/App.js",
+      "line": 13,
+      "description": "# useEffect初始化canvas配置\r\n* 在`useEffect`中相当于在`componentDidMount`生命周期中初始化`canvas`元素宽高背景色\r\n```JS\r\ncanvasEL.current.width = window.innerWidth\r\ncanvasEL.current.height = window.innerHeight\r\ncanvasEL.current.color = 'rgba(0, 0, 0, 0.075)'\r\ncontext = canvasEL.current.getContext('2d')\r\n```\r\n",
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 5
+        },
+        "end": {
+          "line": 16,
+          "character": 48
+        }
+      }
+    },
+    {
+      "file": "src/App.js",
+      "line": 27,
+      "description": "# 准备粒子发射器的初始化参数\r\n* 粒子的生命周期、大小、速度、颜色、缩放、透明的、质量等等\r\n``` JS\r\nemitter.rate = new Proton.Rate(Proton.getSpan(20, 40))\r\n    //add Initialize\r\n    emitter.addInitialize(new Proton.Radius(0.5, 3))\r\n    emitter.addInitialize(new Proton.Life(2.5))\r\n    emitter.addInitialize(new Proton.Mass(1))\r\n    emitter.addInitialize(new Proton.Velocity(new Proton.Span(1, 2),\r\n      new Proton.Span(0, 360), 'polar'))\r\n    let forceBehaviour = new Proton.Force(0, 0);\r\n    emitter.addBehaviour(forceBehaviour, new Proton.Gravity(.9))\r\n    emitter.addBehaviour(new Proton.Color('random', 'random', '#cccccc55', Infinity, Proton.easeOutQuart))\r\n    emitter.addBehaviour(new Proton.Alpha(1, 0, Infinity, Proton.easeOutQuart))\r\n    emitter.addBehaviour(new Proton.Scale(5, 0, Infinity, Proton.easeOutQuart))\r\n```\r\n",
+      "selection": {
+        "start": {
+          "line": 27,
+          "character": 1
+        },
+        "end": {
+          "line": 28,
+          "character": 1
+        }
+      }
+    },
+    {
+      "file": "src/App.js",
+      "line": 44,
+      "description": "# 将初始化后的粒子发射器`emitter`加入`proton`实例中"
+    },
+    {
+      "file": "src/App.js",
+      "line": 52,
+      "description": "# requestAnimationFrame\r\n* 粒子初始化完毕后，需要通过[requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)来渲染动画\r\n* 本次我们使用了对`requestAnimationFrame` 封装的插件`raf-manager`来控制动画\r\n``` JS\r\nproton.addRenderer(renderer)\r\nRAF.add(() => {\r\n  proton.update()\r\n}, 1000)\r\n```\r\n",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 18
+        },
+        "end": {
+          "line": 3,
+          "character": 29
+        }
+      }
+    },
+    {
+      "file": "src/App.js",
+      "line": 58,
+      "description": "# 给canvas绑定的事件\r\n``` JS\r\n const particle = (event) => {\r\n    emitter.p.x = event.clientX\r\n    emitter.p.y = event.clientY\r\n    emitter.emit('once')\r\n    event.persist()\r\n  }\r\n```\r\n* 单击一次触发一次例子发射",
+      "selection": {
+        "start": {
+          "line": 58,
+          "character": 2
+        },
+        "end": {
+          "line": 63,
+          "character": 4
+        }
+      }
+    }
+  ],
+  "ref": "master"
+}

@@ -7,7 +7,7 @@ import rasengen from './views/rasengen/rasengen'
 function App() {
   const proton = new Proton()
   const emitter = new Proton.Emitter()
-  let canvasEL = useRef(null)
+  let canvasEL = useRef()
   let context = null
   useEffect(() => {
     canvasEL.current.width = window.innerWidth
@@ -48,7 +48,6 @@ function App() {
       context.fillStyle = "rgba(0, 0, 0, 0.1)";
       context.fillRect(0, 0, canvasEL.current.width, canvasEL.current.height);  
     }
-   
     proton.addRenderer(renderer)
     RAF.add(() => {
       proton.update()
